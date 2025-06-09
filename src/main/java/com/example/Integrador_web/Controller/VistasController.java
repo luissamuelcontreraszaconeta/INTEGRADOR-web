@@ -31,15 +31,6 @@ public class VistasController
     }
 
 
-//    @GetMapping("/voluntariado")
-//    public String voluntarios() {
-//
-//        return "voluntariados";
-//    }
-//    @GetMapping("/foro")
-//    public String foros() {
-//        return "foro";
-//    }
     @GetMapping("/voluntariados_e")
     public String Voluntariadoe() {
         return "voluntariados_e";
@@ -57,13 +48,14 @@ public class VistasController
         return "emprendedor";
     }
 
-    @GetMapping("/login_e")
-    public String login_e() {
-        return "login_e";
-    }
 
     @GetMapping("/seleccion")
     public String seleccion() {
         return "seleccion";
+    }
+
+    @GetMapping("/recompensas")
+    public String recompensa() {
+        return "recompensas";
     }
 }

@@ -51,6 +51,6 @@ public class UsuarioController {
     public String registrarUsuario(@ModelAttribute Usuario usuario) {
         // Encriptar contraseña si es necesario antes de guardar
         usuarioService.registrarUsuario(usuario);
-        return "redirect:/Ecogreen/index"; // Redirigir al login después de registrarse
+        return "redirect:/Ecogreen/login"; // Redirigir al login después de registrarse
     }
 }

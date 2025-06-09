@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,17 +12,21 @@
   <div class="box">
     <div class="container">
       <div class="top-header">
-        <h1><a href="/Ecogreen/index">Eco Green</a></h1>
+        <h1><a href="/Ecogreen/emprendedor">Eco Green</a></h1>
         <header id="form-title">Iniciar Sesión</header>
       </div>
+
+      <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+      </div>
       
-      <form id="login-form">
+      <form id="login-form" method="post" action="/Ecogreen/validar_e">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Usuario" required />
+          <input type="text" name="ruc" class="input" placeholder="RUC" required />
           <i class="bx bx-user"></i>
         </div>
         <div class="input-field">
-          <input type="password" class="input" placeholder="Contraseña" required />
+          <input type="password" name="contrasena" class="input" placeholder="Contraseña" required />
           <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-field">
@@ -40,21 +44,21 @@
       </form>
 
       <!-- Formulario Registro -->
-      <form id="register-form" style="display: none;">
+      <form id="register-form" th:action="@{/Ecogreen/registro_e}" method="post" style="display: none;">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Nombre de Empresa" required />
+          <input type="text" class="input" name="nombre_empresa" placeholder="Nombre de Empresa" required />
           <i class="bx bx-user-circle"></i>
         </div>
         <div class="input-field">
-          <input type="email" class="input" placeholder="Correo electrónico" required />
-          <i class="bx bx-envelope"></i>
-        </div>
-        <div class="input-field">
-          <input type="text" class="input" placeholder="Telefono" required />
+          <input type="text" class="input" name="telefono" placeholder="Telefono" required />
           <i class="bx bx-user"></i>
         </div>
         <div class="input-field">
-          <input type="password" class="input" placeholder="Contraseña" required />
+          <input type="text" class="input" name="ruc" placeholder="RUC" required />
+          <i class="bx bx-user"></i>
+        </div>
+        <div class="input-field">
+          <input type="password" class="input" name="contraseña" placeholder="Contraseña" required />
           <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-field">

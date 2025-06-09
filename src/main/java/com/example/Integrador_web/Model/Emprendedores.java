@@ -2,30 +2,50 @@ package com.example.Integrador_web.Model;
 
 public class Emprendedores {
     private int id_empresa;
-    private int id_usuario;
+    ;
     private String nombre_empresa;
     private String telefono;
     private String descripcion;
     private String sitio_web;
+    private String ruc;
+    private String contraseña;
 
-    public Emprendedores(int id_empresa) {
-        this.id_empresa = id_empresa;
-    }
-
-    public Emprendedores(int id_empresa, int id_usuario, String nombre_empresa, String telefono, String descripcion, String sitio_web) {
-        this.id_empresa = id_empresa;
-        this.id_usuario = id_usuario;
+    public Emprendedores(String nombre_empresa, String telefono, String descripcion, String sitio_web, String ruc, String contraseña) {
         this.nombre_empresa = nombre_empresa;
         this.telefono = telefono;
         this.descripcion = descripcion;
         this.sitio_web = sitio_web;
+        this.ruc = ruc;
+        this.contraseña = contraseña;
     }
 
-    public Emprendedores(String nombre_empresa, String telefono, String descripcion, String sitio_web) {
+    public Emprendedores(int id_empresa, String nombre_empresa, String telefono, String descripcion, String sitio_web, String ruc, String contraseña) {
+        this.id_empresa = id_empresa;
         this.nombre_empresa = nombre_empresa;
         this.telefono = telefono;
         this.descripcion = descripcion;
         this.sitio_web = sitio_web;
+        this.ruc = ruc;
+        this.contraseña = contraseña;
+    }
+
+    public Emprendedores() {
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getRuc() {
+        return ruc;
+    }
+
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
 
     public int getId_empresa() {
@@ -36,13 +56,6 @@ public class Emprendedores {
         this.id_empresa = id_empresa;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
 
     public String getNombre_empresa() {
         return nombre_empresa;
