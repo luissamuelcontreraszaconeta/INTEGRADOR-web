@@ -21,7 +21,7 @@
 
       <form id="login-form" method="post" action="/Ecogreen/validar">
         <div class="input-field">
-          <input type="text" name="correo" class="input" placeholder="Usuario" required />
+          <input type="text" name="dni" class="input" placeholder="DNI" required />
           <i class="bx bx-user"></i>
         </div>
         <div class="input-field">
@@ -41,39 +41,41 @@
           </div>
         </div>
       </form>
-
-      <!-- Formulario Registro -->
-      <form id="register-form" style="display: none;">
+      <form id="register-form" th:action="@{/Ecogreen/registro}" method="post" style="display: none;">
         <div class="input-field">
-          <input type="text" class="input" placeholder="Nombre completo" required />
+          <input type="text" class="input" name="nombreCompleto" placeholder="Nombre completo" required />
           <i class="bx bx-user-circle"></i>
         </div>
         <div class="input-field">
-          <input type="email" class="input" placeholder="Correo electrónico" required />
+          <input type="text" class="input" name="dni" placeholder="N° DNI" required />
+          <i class="bx bx-user-circle"></i>
+        </div>
+        <div class="input-field">
+          <input type="email" class="input" name="correo" placeholder="Correo electrónico" required />
           <i class="bx bx-envelope"></i>
         </div>
         <div class="input-field">
-          <input type="text" class="input" placeholder="Nombre de usuario" required />
+          <input type="text" class="input" name="nombreUsuario" placeholder="Nombre de usuario" required />
           <i class="bx bx-user"></i>
         </div>
         <div class="input-field" style="position: relative;">
-  <input type="password" class="input" placeholder="Contraseña" id="register-password" required />
-  <i class="bx bx-lock-alt"></i>
-  <!-- Ojito -->
-  <span id="toggle-password" style="position: absolute; right: 10px; top: 10px; cursor: pointer;">👁️</span>
-</div>
+          <input type="password" class="input" name="contrasena" placeholder="Contraseña" id="register-password" required />
+          <i class="bx bx-lock-alt"></i>
+          <span id="toggle-password" style="position: absolute; right: 10px; top: 10px; cursor: pointer;">👁️</span>
+        </div>
 
-<!-- Lista de validaciones -->
-<ul id="password-rules" style="text-align: left; font-size: 0.9em; margin-top: 5px; padding-left: 15px;">
-  <li id="rule-length">🔴 Mínimo 8 caracteres</li>
-  <li id="rule-uppercase">🔴 Al menos una mayúscula</li>
-  <li id="rule-number">🔴 Al menos un número</li>
-  <li id="rule-special">🔴 Al menos un carácter especial (!@#$...)</li>
-</ul>
+        <ul id="password-rules" style="text-align: left; font-size: 0.9em; margin-top: 5px; padding-left: 15px;">
+          <li id="rule-length">🔴 Mínimo 8 caracteres</li>
+          <li id="rule-uppercase">🔴 Al menos una mayúscula</li>
+          <li id="rule-number">🔴 Al menos un número</li>
+          <li id="rule-special">🔴 Al menos un carácter especial (!@#$...)</li>
+        </ul>
+
         <div class="input-field">
           <input type="submit" class="submit" value="Crear Cuenta" />
         </div>
       </form>
+
 
       <div class="bottom" style="justify-content: center;">
         <label>

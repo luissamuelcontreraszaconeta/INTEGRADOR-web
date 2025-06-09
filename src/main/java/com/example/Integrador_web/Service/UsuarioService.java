@@ -12,7 +12,11 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario validarCliente(String correo, String contrasena) {
-        return usuarioRepository.validarCliente( correo,contrasena);
+    public Usuario validarCliente(String dni, String contrasena) {
+        return usuarioRepository.validarCliente( dni,contrasena);
+    }
+    // ✅ Método para registrar un nuevo usuario
+    public void registrarUsuario(Usuario usuario) {
+        usuarioRepository.registrarUsuario(usuario);
     }
 }

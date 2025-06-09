@@ -20,15 +20,15 @@ public class IUsuarioImpl implements IUsuario {
     }
 
     @Override
-    public  Usuario validarCliente(String correo, String contrasena) {
+    public  Usuario validarCliente(String dni, String contrasena) {
         Usuario usuario = null;
-        String query = "SELECT * FROM usuarios WHERE nombre_usuario = ? AND password_hash = ?";
+        String query = "SELECT * FROM usuarios WHERE dni = ? AND password_hash = ?";
 
 
 
         try (Connection con = conexionBD.getConexion();
              PreparedStatement stmt = con.prepareStatement(query)) {
-            stmt.setString(1, correo);
+            stmt.setString(1, dni);
             stmt.setString(2, contrasena);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -40,7 +40,9 @@ public class IUsuarioImpl implements IUsuario {
                             rs.getString("password_hash"),
                             rs.getString("fecha_registro"),
                             rs.getString("ultimo_acceso"),
-                            rs.getBoolean("activo")
+                            rs.getBoolean("activo"),
+                            rs.getString("dni")
+
                     );
                 }
             }
@@ -49,4 +51,25 @@ public class IUsuarioImpl implements IUsuario {
         }
         return usuario;
     }
+    @Override
+    public void registrarUsuario(Usuario usuario) {
+        String sql = "INSERT INTO usuarios (nombre_completo, dni, correo_electronico, nombre_usuario, password_hash, id_tipo_usuario) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = conexionBD.getConexion();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, usuario.getNombreCompleto());
+            stmt.setString(2, usuario.getDni());
+            stmt.setString(3, usuario.getCorreo());
+            stmt.setString(4, usuario.getNombreUsuario());
+            stmt.setString(5, usuario.getContrasena()); // ⚠️ Cifra si es posible
+            stmt.setInt(6, 2); // 👈 Valor por defecto para id_tipo_usuario
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

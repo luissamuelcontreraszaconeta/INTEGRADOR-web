@@ -1,5 +1,6 @@
 package com.example.Integrador_web.Controller;
 
+import com.example.Integrador_web.Model.Inscripciones;
 import com.example.Integrador_web.Model.Usuario;
 import com.example.Integrador_web.Service.InscripcionesService;
 import jakarta.servlet.http.HttpSession;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Integrador_web.Model.Eventos;
 import com.example.Integrador_web.Service.EventosService;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,10 +47,34 @@ public class EventosController {
         }
 
         // Enviar el mapa al HTML
-        model.addAttribute("eventosInscritos", eventosInscritos);
+//        model.addAttribute("eventosInscritos", eventosInscritos);
+        model.addAttribute("eventosInscritos", new HashMap<Integer, Boolean>());
+
 
         return "voluntariados"; // Tu vista HTML
     }
+
+//    @PostMapping("/eventos/{id}/inscribirse")
+//    public String inscribirseEvento(@PathVariable("id") int idEvento, HttpSession session) {
+//        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+//
+//        if (usuario != null) {
+//            boolean yaInscrito = inscripcionService.estaInscrito(usuario.getIdUsuario(), idEvento);
+//
+//            if (!yaInscrito) {
+//                Inscripciones nuevaInscripcion = new Inscripciones();
+//                nuevaInscripcion.setId_evento(idEvento);
+//                nuevaInscripcion.setId_usuario(usuario.getIdUsuario());
+//
+//
+//                inscripcionService.guardar(nuevaInscripcion);
+//            }
+//        }
+//
+//        // Redirigir a la misma página para refrescar los datos
+//        return "redirect:/Ecogreen/voluntariado";
+//    }
+
 
 }
 

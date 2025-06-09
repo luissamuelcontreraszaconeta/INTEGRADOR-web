@@ -5,7 +5,7 @@ import com.example.Integrador_web.Model.Usuario;
 
 public interface IUsuario
 {
-    Usuario validarCliente(String email, String contrasena);
-
+    Usuario validarCliente(String dni, String contrasena);
+    void registrarUsuario(Usuario usuario);
 
 }

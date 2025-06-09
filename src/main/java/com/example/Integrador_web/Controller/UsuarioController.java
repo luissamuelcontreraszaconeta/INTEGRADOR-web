@@ -24,14 +24,14 @@ public class UsuarioController {
 
     @PostMapping("/validar")
 
-    public String validarCliente(@RequestParam("correo") String correo,
+    public String validarCliente(@RequestParam("dni") String dni,
                                  @RequestParam("contrasena") String contrasena,
                                  Model model,
                                  HttpSession session) {
         System.out.println("Intentando validar usuario...");
 
         // Validar usuario
-        Usuario usuario = usuarioService.validarCliente(correo, contrasena);
+        Usuario usuario = usuarioService.validarCliente(dni, contrasena);
 
         if (usuario != null) {
             // Guardar el usuario en la sesión
@@ -46,5 +46,11 @@ public class UsuarioController {
             model.addAttribute("error", "Usuario o contraseña incorrectos");
             return "login"; // Página de login
         }
+    }
+    @PostMapping("/registro")
+    public String registrarUsuario(@ModelAttribute Usuario usuario) {
+        // Encriptar contraseña si es necesario antes de guardar
+        usuarioService.registrarUsuario(usuario);
+        return "redirect:/Ecogreen/index"; // Redirigir al login después de registrarse
     }
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class InscripcionEventoImpl implements IInscripcionEvento {
+public class    InscripcionEventoImpl implements IInscripcionEvento {
 
     @Override
     public void guardarInscripcion(Inscripciones inscripcion) {

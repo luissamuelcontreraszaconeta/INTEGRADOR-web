@@ -10,6 +10,28 @@ public class Usuario {
     private String fecharegistro;
     private String ultimoacceso;
     private boolean activo;
+    private String dni;
+
+    public Usuario(int idUsuario, String nombreCompleto, String nombreUsuario, String correo, String contrasena, String fecharegistro, String ultimoacceso, boolean activo, String dni) {
+        this.idUsuario = idUsuario;
+        this.idtipoUsuario = idtipoUsuario;
+        this.nombreCompleto = nombreCompleto;
+        this.nombreUsuario = nombreUsuario;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.fecharegistro = fecharegistro;
+        this.ultimoacceso = ultimoacceso;
+        this.activo = activo;
+        this.dni = dni;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     public Usuario() {
     }
@@ -24,16 +46,16 @@ public class Usuario {
         this.activo = activo;
     }
 
-    public Usuario(int idUsuario, String nombreCompleto, String nombreUsuario, String correo, String contrasena, String fecharegistro, String ultimoacceso, boolean activo) {
-        this.idUsuario = idUsuario;
-        this.nombreCompleto = nombreCompleto;
-        this.nombreUsuario = nombreUsuario;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.fecharegistro = fecharegistro;
-        this.ultimoacceso = ultimoacceso;
-        this.activo = activo;
-    }
+//    public Usuario(int idUsuario, String nombreCompleto, String nombreUsuario, String correo, String contrasena, String fecharegistro, String ultimoacceso, boolean activo) {
+//        this.idUsuario = idUsuario;
+//        this.nombreCompleto = nombreCompleto;
+//        this.nombreUsuario = nombreUsuario;
+//        this.correo = correo;
+//        this.contrasena = contrasena;
+//        this.fecharegistro = fecharegistro;
+//        this.ultimoacceso = ultimoacceso;
+//        this.activo = activo;
+//    }
 
     public int getIdUsuario() {
         return idUsuario;

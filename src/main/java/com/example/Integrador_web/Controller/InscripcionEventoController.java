@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Controller
+
 public class InscripcionEventoController {
 
     @Autowired
